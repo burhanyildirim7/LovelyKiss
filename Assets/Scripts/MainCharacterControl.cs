@@ -5,12 +5,12 @@ using UnityEngine;
 public class MainCharacterControl : MonoBehaviour
 {
     [SerializeField] private Vector3 growthValue = new Vector3(0.3f, 0.2f, 0f);
-    [Header("Oyun sonu karakterin hýzýný arttýrmak için RunningObject atamasý yapýyoruz.")]
+    [Header("Oyun sonu karakterin hizini arttirmak icin RunningObject atamas? yap?yoruz.")]
     [SerializeField] private GameObject runningObject;
-    [Header("Öpücüðün X'te büyüyebileceði maksimum deðer")]
+    [Header("?p?c???n X'te b?y?yebilecegi maksimum deger")]
     [SerializeField] private float _maxScaleForX = 9f;
     static public bool _isGameStarted = false;
-    static public bool _isFinishLinePassed = false; //Karakter bitiþ çizgisini geçtiðinde PlayerMovement'in dart'ýn merkezine gitmesi için bu deðeri kontrol edecek.
+    static public bool _isFinishLinePassed = false; //Karakter biti? ?izgisini ge?ti?inde PlayerMovement'in dart'?n merkezine gitmesi i?in bu de?eri kontrol edecek.
     private UiController uiController;
     private int _levelPoints = 0;
     private int _totalPoints = 0;
@@ -62,6 +62,7 @@ public class MainCharacterControl : MonoBehaviour
             CameraControl.cameraFinish = true;
             _isFinishLinePassed = true;
             runningObject.GetComponent<RunningObject>()._speed = 20f;
+            GameObject.Find("DudakPrefab").GetComponent<Animator>().SetBool("Start", false);
         }
         else if (other.tag == "Dart")
         {

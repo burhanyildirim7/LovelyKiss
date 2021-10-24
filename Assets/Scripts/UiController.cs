@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class UiController : MonoBehaviour
 {
@@ -48,6 +49,8 @@ public class UiController : MonoBehaviour
         _TapToStartScreen.SetActive(false);
         _LevelScreen.SetActive(true);
         GameController.isGameActive = true;
+        GameObject.Find("DudakPrefab").GetComponent<Animator>().SetBool("Start",true);
+        
     }
     public void btn_NextLevel()
     {

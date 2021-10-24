@@ -9,11 +9,11 @@ public class LevelController : MonoBehaviour
 
     private int _levelNumarasi; //Listedeki level index
 
-    private GameObject güncelLevel;
+    private GameObject guncelLevel;
 
     private int _level;
 
-    private int _güncelLevelNumarasi;
+    private int _guncelLevelNumarasi;
 
     private int _levelNumber; //UI'da yazan level text
 
@@ -21,54 +21,54 @@ public class LevelController : MonoBehaviour
 
     void Start()
     {
-        if (güncelLevel)
+        if (guncelLevel)
         {
-            Destroy(güncelLevel);
+            Destroy(guncelLevel);
         }
         else
         {
 
         }
-        // PlayerPrefs.SetInt("LevelNumarasý", 0);
-        //_güncelLevelNumarasi = PlayerPrefs.GetInt("GüncelLevelNumarasý");
-        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasý",0);
+        // PlayerPrefs.SetInt("LevelNumaras?", 0);
+        //_g?ncelLevelNumarasi = PlayerPrefs.GetInt("G?ncelLevelNumaras?");
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?",0);
         _levelNumber = PlayerPrefs.GetInt("LevelNumber",1);
         _toplamLevelSayisi = _leveller.Count - 1;
 
         if (_levelNumber < _toplamLevelSayisi)
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasý");
-            güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
+            guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
         }
         else
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasý");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
 
-            güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
         }
     }
 
 
     public void LevelDegistir()
     {
-        Destroy(güncelLevel);
-        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasý");
+        Destroy(guncelLevel);
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
         _levelNumber = PlayerPrefs.GetInt("LevelNumber");
         _toplamLevelSayisi = _leveller.Count - 1;
 
         if (_levelNumber < _toplamLevelSayisi)
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasý");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
             _levelNumarasi += 1;
             _levelNumber++;
 
-            güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
-            PlayerPrefs.SetInt("LevelNumarasý", _levelNumarasi);
+            guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            PlayerPrefs.SetInt("LevelNumaras?", _levelNumarasi);
             PlayerPrefs.SetInt("LevelNumber", _levelNumber);
         }
         else
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasý");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
             int _geciciLevelNumarasi = _levelNumarasi;
 
             _levelNumarasi = Random.Range(0, _toplamLevelSayisi);
@@ -80,11 +80,11 @@ public class LevelController : MonoBehaviour
             else
             {
                 _levelNumber++;
-                güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
-                PlayerPrefs.SetInt("LevelNumarasý", _levelNumarasi);
+                guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+                PlayerPrefs.SetInt("LevelNumaras?", _levelNumarasi);
                 PlayerPrefs.SetInt("LevelNumber", _levelNumber);
             }
-            //PlayerPrefs.SetInt("GüncelLevelNumarasý", _güncelLevelNumarasi);
+            //PlayerPrefs.SetInt("G?ncelLevelNumaras?", _g?ncelLevelNumarasi);
 
 
 
@@ -95,20 +95,20 @@ public class LevelController : MonoBehaviour
 
     public void LevelRestart()
     {
-        Destroy(güncelLevel);
-        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasý");
+        Destroy(guncelLevel);
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
         _toplamLevelSayisi = _leveller.Count - 1;
 
         if (_levelNumber < _toplamLevelSayisi)
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasý");
-            güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
+            guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
         }
         else
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasý");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
 
-            güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
         }
     }
 }
