@@ -838,6 +838,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Kuntay Koca - Walker - Kad\u0131n"
       objectReference: {fileID: 0}
+    - target: {fileID: 231985748118081555, guid: 5e6bf65a9c0082447a3179585967e5ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5447115035401296913, guid: 5e6bf65a9c0082447a3179585967e5ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12
@@ -1197,6 +1201,26 @@ PrefabInstance:
     - target: {fileID: 8318133845521255130, guid: 5e6bf65a9c0082447a3179585967e5ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318133845521255130, guid: 5e6bf65a9c0082447a3179585967e5ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318133845521255130, guid: 5e6bf65a9c0082447a3179585967e5ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318133845521255130, guid: 5e6bf65a9c0082447a3179585967e5ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318133845521255130, guid: 5e6bf65a9c0082447a3179585967e5ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318133845521255130, guid: 5e6bf65a9c0082447a3179585967e5ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e6bf65a9c0082447a3179585967e5ae, type: 3}
@@ -4254,6 +4278,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7335134626011546610}
     m_Modifications:
+    - target: {fileID: 4751059857428848842, guid: 218d061077279ea46806dbcea936e30e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751059858231832861, guid: 218d061077279ea46806dbcea936e30e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4751059858567697933, guid: 218d061077279ea46806dbcea936e30e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4301,6 +4333,22 @@ PrefabInstance:
     - target: {fileID: 4751059858567697934, guid: 218d061077279ea46806dbcea936e30e, type: 3}
       propertyPath: m_Name
       value: KuntayKOCA - Walker - Erkek
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751059858567697934, guid: 218d061077279ea46806dbcea936e30e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755336923495313709, guid: 218d061077279ea46806dbcea936e30e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755336923495313709, guid: 218d061077279ea46806dbcea936e30e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755336923495313709, guid: 218d061077279ea46806dbcea936e30e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 218d061077279ea46806dbcea936e30e, type: 3}

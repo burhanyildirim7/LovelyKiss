@@ -23,10 +23,23 @@ public class UiController : MonoBehaviour
     private int _levelPoints = 0;
     private int _totalPoints = 0;
 
+    private int _oyunBasladi = 0;
+
     void Start()
     {
         _TapToStartScreen.SetActive(true);
-        _levelNumber = PlayerPrefs.GetInt("LevelNumber", 1);
+        _levelNumber = PlayerPrefs.GetInt("LevelNumber");
+        _oyunBasladi = PlayerPrefs.GetInt("OyunBasladi");
+        if (_oyunBasladi == 0)
+        {
+            PlayerPrefs.SetInt("LevelNumber", 1);
+            _oyunBasladi = 1;
+            PlayerPrefs.SetInt("OyunBasladi", _oyunBasladi);
+        }
+        else
+        {
+
+        }
         runningObject = GameObject.FindGameObjectWithTag("RunningObject").GetComponent<RunningObject>();
     }
 

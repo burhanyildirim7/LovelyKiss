@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ElephantSDK;
 
 public class LevelController : MonoBehaviour
 {
@@ -31,20 +32,22 @@ public class LevelController : MonoBehaviour
         }
         // PlayerPrefs.SetInt("LevelNumaras?", 0);
         //_g?ncelLevelNumarasi = PlayerPrefs.GetInt("G?ncelLevelNumaras?");
-        _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?",0);
-        _levelNumber = PlayerPrefs.GetInt("LevelNumber",1);
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
+        _levelNumber = PlayerPrefs.GetInt("LevelNumber");
         _toplamLevelSayisi = _leveller.Count - 1;
 
         if (_levelNumber < _toplamLevelSayisi)
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            Elephant.LevelStarted(_levelNumber);
         }
         else
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
 
             guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            Elephant.LevelStarted(_levelNumber);
         }
     }
 
@@ -52,23 +55,25 @@ public class LevelController : MonoBehaviour
     public void LevelDegistir()
     {
         Destroy(guncelLevel);
-        _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
         _levelNumber = PlayerPrefs.GetInt("LevelNumber");
         _toplamLevelSayisi = _leveller.Count - 1;
+        Elephant.LevelCompleted(_levelNumber);
 
         if (_levelNumber < _toplamLevelSayisi)
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             _levelNumarasi += 1;
             _levelNumber++;
 
             guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
             PlayerPrefs.SetInt("LevelNumaras?", _levelNumarasi);
             PlayerPrefs.SetInt("LevelNumber", _levelNumber);
+            Elephant.LevelStarted(_levelNumber);
         }
         else
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             int _geciciLevelNumarasi = _levelNumarasi;
 
             _levelNumarasi = Random.Range(0, _toplamLevelSayisi);
@@ -81,8 +86,9 @@ public class LevelController : MonoBehaviour
             {
                 _levelNumber++;
                 guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
-                PlayerPrefs.SetInt("LevelNumaras?", _levelNumarasi);
+                PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
                 PlayerPrefs.SetInt("LevelNumber", _levelNumber);
+                Elephant.LevelStarted(_levelNumber);
             }
             //PlayerPrefs.SetInt("G?ncelLevelNumaras?", _g?ncelLevelNumarasi);
 
@@ -96,19 +102,22 @@ public class LevelController : MonoBehaviour
     public void LevelRestart()
     {
         Destroy(guncelLevel);
-        _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
         _toplamLevelSayisi = _leveller.Count - 1;
+        Elephant.LevelFailed(_levelNumber);
 
         if (_levelNumber < _toplamLevelSayisi)
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            Elephant.LevelStarted(_levelNumber);
         }
         else
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumaras?");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
 
             guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            Elephant.LevelStarted(_levelNumber);
         }
     }
 }
