@@ -32,6 +32,7 @@ public class LevelController : MonoBehaviour
         }
         // PlayerPrefs.SetInt("LevelNumaras?", 0);
         //_g?ncelLevelNumarasi = PlayerPrefs.GetInt("G?ncelLevelNumaras?");
+        MainCharacterControl.lifeCount = 1;
         _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
         _levelNumber = PlayerPrefs.GetInt("LevelNumber");
         _toplamLevelSayisi = _leveller.Count - 1;
@@ -54,6 +55,7 @@ public class LevelController : MonoBehaviour
 
     public void LevelDegistir()
     {
+        MainCharacterControl.lifeCount = 1;
         Destroy(guncelLevel);
         _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
         _levelNumber = PlayerPrefs.GetInt("LevelNumber");
@@ -67,7 +69,7 @@ public class LevelController : MonoBehaviour
             _levelNumber++;
 
             guncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
-            PlayerPrefs.SetInt("LevelNumaras?", _levelNumarasi);
+            PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
             PlayerPrefs.SetInt("LevelNumber", _levelNumber);
             Elephant.LevelStarted(_levelNumber);
         }
@@ -101,6 +103,7 @@ public class LevelController : MonoBehaviour
 
     public void LevelRestart()
     {
+        MainCharacterControl.lifeCount = 1;
         Destroy(guncelLevel);
         _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
         _toplamLevelSayisi = _leveller.Count - 1;

@@ -14,7 +14,7 @@ public class MainCharacterControl : MonoBehaviour
     private UiController uiController;
     private int _levelPoints = 0;
     private int _totalPoints = 0;
-    private int lifeCount;
+    public static int lifeCount;
     void Start()
     {
         _levelPoints = PlayerPrefs.GetInt("LeveldeToplananElmasSayisi", 0);

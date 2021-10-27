@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
     public void EnemyKissed()
     {
         _isKissed = true;
-        transform.eulerAngles = new Vector3(0, 180, 0);        
+        transform.eulerAngles = new Vector3(0, 180, 0);
+        GetComponent<Animator>().SetBool("isHit", true);
+        GetComponent<Animator>().SetBool("isHappy", true);
     }
 }

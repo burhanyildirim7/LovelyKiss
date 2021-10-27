@@ -36,7 +36,9 @@ public class Patroller : MonoBehaviour
         else
         {
             GetComponent<Animator>().SetBool("isWalk", false);
-            GetComponent<Animator>().SetBool("isIdle", true);
+            GetComponent<Animator>().SetBool("isHit", true);
+            GetComponent<Animator>().SetBool("isHappy", true);
+            //GetComponent<Animator>().SetBool("isIdle", true);
         }
     }
 
