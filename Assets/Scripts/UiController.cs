@@ -18,6 +18,15 @@ public class UiController : MonoBehaviour
     [SerializeField] private Text _LoseScreen_DiamondCounter;
 
     [SerializeField] private LevelController levelController;
+
+    [SerializeField] private GameObject _runningObjectPrefab;
+
+    [SerializeField] private GameObject _kadinObjectPrefab;
+
+    private GameObject _kadin;
+
+    private GameObject _dudak;
+
     RunningObject runningObject;
     private int _levelNumber = 1;
     private int _levelPoints = 0;
@@ -40,7 +49,9 @@ public class UiController : MonoBehaviour
         {
 
         }
-        runningObject = GameObject.FindGameObjectWithTag("RunningObject").GetComponent<RunningObject>();
+
+        _kadin = Instantiate(_kadinObjectPrefab, new Vector3(0, 0.5f, -1), Quaternion.identity);
+
     }
 
     // Update is called once per frame
@@ -61,12 +72,21 @@ public class UiController : MonoBehaviour
     {
         _TapToStartScreen.SetActive(false);
         _LevelScreen.SetActive(true);
-        GameController.isGameActive = true;
-        GameObject.Find("DudakPrefab").GetComponent<Animator>().SetBool("Start",true);
-        
+        GameObject.FindGameObjectWithTag("Kadin").GetComponent<kissAtma>().KissAt();
+       // Instantiate(_runningObjectPrefab, new Vector3(0, 4, 0), Quaternion.identity);
+       // GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraControl>().CameraSetTarget();
+        //GameController.isGameActive = true;
+        Invoke("IsGameActive", 2f);
+       // GameObject.Find("DudakPrefab").GetComponent<Animator>().SetBool("Start",true);
+       // runningObject = GameObject.FindGameObjectWithTag("RunningObject").GetComponent<RunningObject>();
+
     }
+
     public void btn_NextLevel()
     {
+        Destroy(_kadin);
+        Destroy(_dudak);
+
         _totalPoints = PlayerPrefs.GetInt("ToplamElmasSayisi", 0);
         _levelPoints = PlayerPrefs.GetInt("LeveldeToplananElmasSayisi", 0);
         _totalPoints += _levelPoints;
@@ -80,10 +100,18 @@ public class UiController : MonoBehaviour
         _WinScreen.SetActive(false);
         _TapToStartScreen.SetActive(true);
 
+        _kadin = Instantiate(_kadinObjectPrefab, new Vector3(0, 0.5f, -1), Quaternion.identity);
+
         levelController.LevelDegistir();
+
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraControl>().CameraResetPosition();
     }
+
     public void btn_RestartButton()
     {
+        Destroy(_kadin);
+        Destroy(_dudak);
+
         _totalPoints = PlayerPrefs.GetInt("ToplamElmasSayisi", 0);
         _levelPoints = PlayerPrefs.GetInt("LeveldeToplananElmasSayisi", 0);
         _totalPoints += _levelPoints;
@@ -97,7 +125,11 @@ public class UiController : MonoBehaviour
         _LoseScreen.SetActive(false);
         _TapToStartScreen.SetActive(true);
 
+        _kadin = Instantiate(_kadinObjectPrefab, new Vector3(0, 0.5f, -1), Quaternion.identity);
+
         levelController.LevelRestart();
+
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraControl>().CameraResetPosition();
     }
 
     public void Win()
@@ -123,5 +155,15 @@ public class UiController : MonoBehaviour
         GameController.collectedLipstickNumber = 0;
         MainCharacterControl._isFinishLinePassed = false;
         MainCharacterControl._isGameStarted = false;
+    }
+
+    private void IsGameActive()
+    {
+        _dudak = Instantiate(_runningObjectPrefab, new Vector3(0, 4, 0), Quaternion.identity);
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraControl>().CameraSetTarget();
+        GameController.isGameActive = true;
+        GameObject.Find("DudakPrefab").GetComponent<Animator>().SetBool("Start", true);
+        runningObject = GameObject.FindGameObjectWithTag("RunningObject").GetComponent<RunningObject>();
+
     }
 }

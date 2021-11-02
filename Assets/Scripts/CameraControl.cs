@@ -18,19 +18,25 @@ public class CameraControl : MonoBehaviour
 
     public static bool cameraFinish;
 
+    private GameObject _targetObject;
+
     private void Start()
     {
         cameraFinish = false;
     }
     private void Update()
     {
-        if (!cameraFinish)
-            Refresh();
-        else
+        if (GameController.isGameActive == true)
         {
-            transform.position = new Vector3(0f, transform.position.y, transform.position.z);
-            transform.LookAt(target);
+            if (!cameraFinish)
+                Refresh();
+            else
+            {
+                transform.position = new Vector3(0f, transform.position.y, transform.position.z);
+                transform.LookAt(target);
+            }
         }
+       
     }
     public void Refresh()
     {
@@ -58,5 +64,17 @@ public class CameraControl : MonoBehaviour
         {
             transform.rotation = target.rotation;
         }
+    }
+
+    public void CameraSetTarget()
+    {
+        _targetObject = GameObject.FindGameObjectWithTag("Player");
+        target = _targetObject.transform;
+    }
+
+    public void CameraResetPosition()
+    {
+        transform.position = new Vector3(0f, 11, -14);
+        transform.rotation = Quaternion.Euler(23, 0, 0);
     }
 }

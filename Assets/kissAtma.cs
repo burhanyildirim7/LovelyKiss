@@ -6,20 +6,21 @@ using UnityEngine.Animations;
 public class kissAtma : MonoBehaviour
 {
 
-    [SerializeField] GameObject KissObject;
-    [SerializeField] Animator OpmeAnimatoru;
+    //[SerializeField] GameObject KissObject;
+    Animator OpmeAnimatoru;
 
 
-    // Start is called before the first frame update
+    
     void Start()
     {
-        OpmeAnimatoru.SetBool("OP",false);
+       // OpmeAnimatoru.SetBool("OP",false);
         OpmeAnimatoru = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void KissAt()
     {
-        
+        OpmeAnimatoru.SetBool("isKiss", true);
     }
+
+  
 }

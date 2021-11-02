@@ -11,6 +11,8 @@ TagManager:
   - FinishLine
   - Kiss
   - RunningObject
+  - UIController
+  - Kadin
   layers:
   - Default
   - TransparentFX

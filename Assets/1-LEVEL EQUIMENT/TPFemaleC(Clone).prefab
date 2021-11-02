@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 7538685881607319286}
   m_Layer: 0
   m_Name: TPFemaleC(Clone)
-  m_TagString: Untagged
+  m_TagString: Kadin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,7 +429,7 @@ Transform:
   m_GameObject: {fileID: 1643691359577616167}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.915, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 538099636248260308}
   - {fileID: 4084545258535797437}
@@ -484,8 +484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9287f58dc5442a6837cbbbf0611463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KissObject: {fileID: 7048090952788704891, guid: 9a54f2a5e69e140e5b63907e20d23e2d, type: 3}
-  OpmeAnimatoru: {fileID: 0}
 --- !u!1 &1760474846669524017
 GameObject:
   m_ObjectHideFlags: 0
