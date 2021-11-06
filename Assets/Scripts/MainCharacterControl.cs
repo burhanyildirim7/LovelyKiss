@@ -25,9 +25,7 @@ public class MainCharacterControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Ruj")
@@ -45,7 +43,18 @@ public class MainCharacterControl : MonoBehaviour
             if (lifeCount == 0)
             {
                 CalculatePoints();
-                uiController.Lose();
+
+                if (_isFinishLinePassed == true)
+                {
+                    GameController.isGameActive = false;
+                    uiController.Win();
+                }
+                else
+                {
+                    GameController.isGameActive = false;
+                    uiController.Lose();
+                }
+
             }
         }
         else if (other.tag == "Elmas")
@@ -59,10 +68,10 @@ public class MainCharacterControl : MonoBehaviour
         }
         else if (other.tag == "FinishLine")
         {
-            CameraControl.cameraFinish = true;
+            //CameraControl.cameraFinish = true;
             _isFinishLinePassed = true;
             runningObject.GetComponent<RunningObject>()._speed = 20f;
-            GameObject.Find("DudakPrefab").GetComponent<Animator>().SetBool("Start", false);
+            //GameObject.Find("DudakPrefab").GetComponent<Animator>().SetBool("Start", false);
         }
         else if (other.tag == "Dart")
         {

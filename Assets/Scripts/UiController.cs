@@ -73,12 +73,12 @@ public class UiController : MonoBehaviour
         _TapToStartScreen.SetActive(false);
         _LevelScreen.SetActive(true);
         GameObject.FindGameObjectWithTag("Kadin").GetComponent<kissAtma>().KissAt();
-       // Instantiate(_runningObjectPrefab, new Vector3(0, 4, 0), Quaternion.identity);
-       // GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraControl>().CameraSetTarget();
+        // Instantiate(_runningObjectPrefab, new Vector3(0, 4, 0), Quaternion.identity);
+        // GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraControl>().CameraSetTarget();
         //GameController.isGameActive = true;
-        Invoke("IsGameActive", 2f);
-       // GameObject.Find("DudakPrefab").GetComponent<Animator>().SetBool("Start",true);
-       // runningObject = GameObject.FindGameObjectWithTag("RunningObject").GetComponent<RunningObject>();
+        Invoke("IsGameActive", 1f);
+        // GameObject.Find("DudakPrefab").GetComponent<Animator>().SetBool("Start",true);
+        // runningObject = GameObject.FindGameObjectWithTag("RunningObject").GetComponent<RunningObject>();
 
     }
 
