@@ -42,7 +42,7 @@ public class MainCharacterControl : MonoBehaviour
             other.gameObject.GetComponent<EnemyController>().CreateKissFx();
             if (lifeCount == 0)
             {
-                CalculatePoints();
+                //CalculatePoints();
 
                 if (_isFinishLinePassed == true)
                 {
@@ -69,6 +69,7 @@ public class MainCharacterControl : MonoBehaviour
         else if (other.tag == "FinishLine")
         {
             //CameraControl.cameraFinish = true;
+            CalculatePoints();
             _isFinishLinePassed = true;
             runningObject.GetComponent<RunningObject>()._speed = 20f;
             //GameObject.Find("DudakPrefab").GetComponent<Animator>().SetBool("Start", false);
@@ -76,8 +77,17 @@ public class MainCharacterControl : MonoBehaviour
         else if (other.tag == "Dart")
         {
             GameController.isGameActive = false;
-            CalculatePoints();
+            //CalculatePoints();
             uiController.Win();
+        }
+        else if (other.tag == "X10")
+        {
+            if (_isFinishLinePassed == true)
+            {
+                GameController.isGameActive = false;
+                uiController.Win();
+            }
+
         }
 
     }
